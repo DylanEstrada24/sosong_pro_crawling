@@ -10,7 +10,3 @@
 - DB 정보
   - localhost 사용
     
-
-TOTO LIST
-====================
-1. google 캘린더
