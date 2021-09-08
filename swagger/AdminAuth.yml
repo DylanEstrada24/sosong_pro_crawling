@@ -1,0 +1,15 @@
+components:
+  schemas:
+    AdminAuthSignIn:
+      properties:
+        email:
+          type: string
+          description: userId
+          example: admin@admin.com
+        password:
+          type: string
+          description: password
+          example: 1234
+#        fbToken:
+#          type: string
+#          description: 파이어 베이스 디바이스 토큰

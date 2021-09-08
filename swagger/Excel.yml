@@ -1,0 +1,21 @@
+components:
+  schemas:
+    ExcelTest:
+      required:
+        - test
+      properties:
+        test:
+          type: string
+          description: 1234
+          example: test
+
+    ExcelFileUpload:
+      type: object
+      required:
+        - excelFile
+      properties:
+        excelFile:
+          type: string
+          format: binary
+          description: 엑셀 파일
+          example: 엑셀 파일 업로드

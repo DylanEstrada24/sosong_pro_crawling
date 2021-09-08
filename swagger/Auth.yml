@@ -1,0 +1,53 @@
+components:
+  schemas:
+    AuthSignUp:
+      properties:
+        password:
+          type: string
+          description: password
+          example: 1234
+        email:
+          type: string
+          description: email
+          example: test@gmail.com
+        name:
+          type: string
+          description: name
+          example: 박모모
+        gender:
+          type: string
+          description: gender
+          example: m
+        phoneNumber:
+          type: string
+          description: phone number
+          example: 010-1234-5678
+
+    AuthSignIn:
+      properties:
+        email:
+          type: string
+          description: userId
+          example: test@gmail.com
+        password:
+          type: string
+          description: password
+          example: 1234
+        fbToken:
+          type: string
+          description: 파이어 베이스 디바이스 토큰
+
+    AuthPasswordChange:
+      properties:
+        email:
+          type: string
+          description: userId
+          example: test@gmail.com
+        password:
+          type: string
+          description: password
+          example: 1234
+        newPassword:
+          type: string
+          description: password
+          example: 1234

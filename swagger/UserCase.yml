@@ -1,0 +1,24 @@
+components:
+  schemas:
+    InputUserCase:
+      properties:
+        title:
+          type: string
+          description: title
+          example: title
+        court:
+          type: string
+          description: court
+          example: 부산지방법원 동부지원
+        caseNumber:
+          type: string
+          description: caseNumber
+          example: 2020가소377585
+        name:
+          type: string
+          description: name
+          example: 김병철
+        webToken:
+          type: string
+          description: webToken
+          example: asdfasdfasdfasdf

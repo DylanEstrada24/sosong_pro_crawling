@@ -1,0 +1,13 @@
+components:
+  schemas:
+    NoticeUpload:
+      properties:
+        title:
+          type: string
+          decription: title
+          example: ""
+        content:
+          type: string
+          description: content
+          example: ""
+

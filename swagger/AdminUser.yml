@@ -1,0 +1,19 @@
+components:
+  schemas:
+    AdminUpdateUserStatus:
+      properties:
+        userIdx:
+          type: string
+          description: 변경할 userIdx
+        status:
+          type: string
+          description: 유저 상태 변경값
+
+    AdminUpdateUserType:
+      properties:
+        userIdx:
+          type: string
+          description: 변경할 userIdx
+        userType:
+          type: string
+          description: 변경할 값

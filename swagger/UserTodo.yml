@@ -1,0 +1,16 @@
+components:
+  schemas:
+    InputUserTodo:
+      properties:
+        content:
+          type: string
+          description: Todo내용
+          example: Todo할 것을 여기적으십시오
+        settingAt:
+          type: string
+          description: 날짜설정
+          example: 2021-08-30
+        caseIdx:
+          type: int
+          description: caseIdx
+          example: 1
