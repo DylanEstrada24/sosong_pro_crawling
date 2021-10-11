@@ -56,4 +56,24 @@
 
 
 
+/**
+ * @swagger
+ * paths:
+ *  /api/v1/user/case/note/date/{date}:
+ *    get:
+ *      tags: [User Note]
+ *      summary: 사건 개인 note 들고오기 by date
+ *      produces:
+ *      - application/json
+ *      parameters:
+ *        - in: path
+ *          name: date
+ *          example: 2021-08-26
+ *      responses:
+ *       200:
+ *        description:
+ *          content:
+ *            application/json:
+ */
+
 

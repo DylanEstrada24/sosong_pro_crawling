@@ -9,9 +9,22 @@ router.get('/v1/terms/1', (req, res) => {
     res.send('' +
         '<html lang="en">\n' +
         '<head>\n' +
+        '    <title>만 14세 이상</title>\n' +
+        '</head>\n' +
+        '<p>정보통신망 이용촉진 및 정보보호 등에 관한 법률에는 만 14세 미만 아동의 개인정보 수집 시 법정 대리인의 동의를 받도록 규정하고 있습니다.</p>' +
+        '<br>' +
+        '<p>만 14세 미만 아동이 법정대리인 동의 없이 회원가입을 하는 경우에는 회원탈퇴 또는 서비스 이용이 제한 될 수 있습니다.</p>'
+    )
+})
+
+router.get('/v1/terms/2' , (req, res) => {
+
+    res.send('' +
+        '<html lang="en">\n' +
+        '<head>\n' +
         '    <title>서비스 이용약관</title>\n' +
         '</head>\n' +
-        '<p>1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' +
+        '<p>2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' +
         'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
         'Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Volutpat odio facilisis mauris sit amet massa. ' +
         'Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Mi eget mauris pharetra et. ' +
@@ -32,13 +45,14 @@ router.get('/v1/terms/1', (req, res) => {
     )
 })
 
-router.get('/v1/terms/2' , (req, res) => {
+router.get('/v1/terms/3' , (req, res) => {
 
     res.send('' +
         '<html lang="en">\n' +
         '<head>\n' +
-        '    <title>개인정보보호 약관</title>\n' +
+        '    <title>개인정보 유효기간</title>\n' +
         '</head>\n' +
+        '<p> 개인정보 유효기간 입니다. </p>' +
         '<p>2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' +
         'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
         'Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Volutpat odio facilisis mauris sit amet massa. ' +
@@ -57,6 +71,21 @@ router.get('/v1/terms/2' , (req, res) => {
         'Enim nulla aliquet porttitor lacus luctus accumsan tortor posuere. Ut sem nulla pharetra diam. Fames ac turpis egestas maecenas. ' +
         'Bibendum neque egestas congue quisque egestas diam. Laoreet id donec ultrices tincidunt arcu non sodales neque. ' +
         'Eget felis eget nunc lobortis mattis aliquam faucibus purus. Faucibus interdum posuere lorem ipsum dolor sit.</p>'
+    )
+})
+
+router.get('/v1/terms/4' , (req, res) => {
+
+    res.send('' +
+        '<html lang="en">\n' +
+        '<head>\n' +
+        '    <title>개인정보보호 약관</title>\n' +
+        '</head>\n' +
+        '<p>개인정보보호법 제39조의6에 따라 회사의 서비스를 1년간 이용하지 않으면 개인정보 분리 보관 후 휴면계정으로 관리합니다. </p>' +
+        '<br>' +
+        '<p>휴면 회원으로 관리될 경우, 서비스를 다시 이용하기 위해서는 휴면 해제를 진행하셔야 합니다. </p>' +
+        '<br>' +
+        '<p>개인정보 유효기간을 회원 탈퇴시 까지로 설정하지 않는 경우 1년으로 설정됩니다.</p>'
     )
 })
 

@@ -13,7 +13,6 @@ const {ErrorCode} = require("../../../common/model/ErrorCode");
 router.post('/v1/board', validateToken, (req, res) => {
 
     let date = new Date();
-    date.setHours(date.getHours()+9);
 
     let inputData = {
         userIdx: req.userIdx,
@@ -52,7 +51,6 @@ router.get('/v1/board', (req, res) => {
 router.put('/v1/board/:boardIdx/:title/:content', validateToken, (req, res) => {
 
     let date = new Date();
-    date.setHours(date.getHours()+9);
 
     let inputData = {
         userIdx: req.userIdx,

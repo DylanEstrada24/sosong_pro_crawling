@@ -739,6 +739,28 @@ router.get('/v1/test2', (req, res) => {
         '                    <td scope="col" style="color: #CC6600;">&nbsp;</td>\n' +
         '                  </tr>\n' +
         '\n' +
+        '                  <tr>\n' +
+        '                    <td style="color: #660000;">&nbsp;2021.08.11</td>\n' +
+        '                    <td class="tit" style="color: #660000;">&nbsp;원고 소송대리인 강청현 소송대리인 사임서 제출</td>\n' +
+        '<!-- 2007.03.23 [재판 SF 07-0031] -->\n' +
+        '<!-- 2012.05.14 [12LG-SF0013] [홈페이지 사건검색] 송달이 되었을때 송달자 확인이 가능하도록 개선 - 장진범 -->\n' +
+        '\n' +
+        '                    <td style="color: #660000;">&nbsp; </td>\n' +
+        '\n' +
+        '                    <td scope="col" style="color: #660000;">&nbsp;</td>\n' +
+        '                  </tr>\n' +
+        '\n' +
+        '<tr>\n' +
+        '                    <td style="color: #660000;">&nbsp;2021.08.11</td>\n' +
+        '                    <td class="tit" style="color: #660000;">&nbsp;원고 소송대리인 강청현 소송위임장 제출</td>\n' +
+        '<!-- 2007.03.23 [재판 SF 07-0031] -->\n' +
+        '<!-- 2012.05.14 [12LG-SF0013] [홈페이지 사건검색] 송달이 되었을때 송달자 확인이 가능하도록 개선 - 장진범 -->\n' +
+        '\n' +
+        '                    <td style="color: #660000;">&nbsp; </td>\n' +
+        '\n' +
+        '                    <td scope="col" style="color: #660000;">&nbsp;</td>\n' +
+        '                  </tr>\n' +
+        '\n' +
         '                </tbody>\n' +
         '              </table>\n' +
         '              <!-- //tableHor  -->\n' +

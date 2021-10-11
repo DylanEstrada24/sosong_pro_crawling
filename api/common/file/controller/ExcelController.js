@@ -56,8 +56,12 @@ router.post('/v1/file/excel/upload', upload.single('excelFile'), async (req, res
 
     for (let j = 2 ; j<trSplit.length;j++){
         let tdSplit = trSplit[j].split('">');
-        for(let i = 0 ; i<tdSplit.length; i++){
-            // console.log(tdSplit[i].substring(0, tdSplit[i].indexOf('</')));
+        for(let i = 2 ; i<tdSplit.length; i++){
+            // console.log(tdSplit[(i*10)+2].substring(0, tdSplit[(i*10)+2].indexOf('</')) + tdSplit[(i*10)+3].substring(0, tdSplit[(i*10)+3].indexOf('</'))
+            //     + tdSplit[(i*10)+4].substring(0, tdSplit[(i*10)+4].indexOf('</')) + tdSplit[(i*10)+5].substring(0, tdSplit[(i*10)+5].indexOf('</'))
+            //     + tdSplit[(i*10)+6].substring(0, tdSplit[(i*10)+6].indexOf('</')) + tdSplit[(i*10)+7].substring(0, tdSplit[(i*10)+7].indexOf('</'))
+            //     + tdSplit[(i*10)+8].substring(0, tdSplit[(i*10)+8].indexOf('</')) + tdSplit[(i*10)+9].substring(0, tdSplit[(i*10)+9].indexOf('</')));
+
             arry2.push(tdSplit[i].substring(0, tdSplit[i].indexOf('</')));
         }
         arry.push(arry2);

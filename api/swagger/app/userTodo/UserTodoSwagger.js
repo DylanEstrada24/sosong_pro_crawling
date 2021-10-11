@@ -104,3 +104,64 @@
  */
 
 
+/**
+ * @swagger
+ * paths:
+ *  /api/v1/user/case/usertodo/date/{date}:
+ *    get:
+ *      tags: [User Todo]
+ *      summary: 사건 개인 todo 들고오기 by date
+ *      produces:
+ *      - application/json
+ *      parameters:
+ *        - in: path
+ *          name: date
+ *          example: 2021-08-26
+ *      responses:
+ *       200:
+ *        description:
+ *          content:
+ *            application/json:
+ */
+
+
+/**
+ * @swagger
+ * paths:
+ *  /api/v1/user/case/usertodo/todoIdx/{todoIdx}:
+ *    delete:
+ *      tags: [User Todo]
+ *      summary: Todo 삭제
+ *      produces:
+ *      - application/json
+ *      parameters:
+ *        - in: path
+ *          name: todoIdx
+ *          example:
+ *      responses:
+ *       200:
+ *        description:
+ */
+
+/**
+ * @swagger
+ * paths:
+ *  /api/v1/user/case/userTodo/{todoIdx}/{content}:
+ *    put:
+ *      tags: [User Todo]
+ *      summary: Todo 변경
+ *      produces:
+ *      - application/json
+ *      parameters:
+ *        - in: path
+ *          name: todoIdx
+ *          example:
+ *        - in: path
+ *          name: content
+ *          example:
+ *      responses:
+ *       200:
+ *        description:
+ *          content:
+ *            application/json:
+ */

@@ -2,6 +2,10 @@ components:
   schemas:
     InputUserTodo:
       properties:
+        title:
+          type: string
+          description: 메모 제목
+          example: 제목
         content:
           type: string
           description: Todo내용

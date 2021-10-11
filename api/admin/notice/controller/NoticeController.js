@@ -13,7 +13,6 @@ const {checkAdmin} = require("../../../config/security/adminCheck");
 router.post('/v1/admin/notice', validateToken, checkAdmin, (req, res) => {
 
     let date = new Date();
-    date.setHours(date.getHours()+9);
 
     console.log(date);
 
@@ -89,7 +88,6 @@ router.get('/v1/admin/notice/noticeIdx/:noticeIdx', validateToken,checkAdmin, (r
 router.put('/v1/admin/notice/:noticeIdx/:title/:content', validateToken, checkAdmin,(req, res) => {
 
     let date = new Date();
-    date.setHours(date.getHours()+9);
 
     let inputData = {
         noticeIdx: req.params.noticeIdx,

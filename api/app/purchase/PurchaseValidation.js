@@ -15,6 +15,7 @@ const googleApis = require('googleapis');
 
 router.get('/v1/purchase/:token', /*validateToken*/ (req, res) => {
 
+
     // let inputData = {
     //     userIdx: req.userIdx,
     //     title: req.body.title,

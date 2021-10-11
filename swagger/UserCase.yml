@@ -22,3 +22,14 @@ components:
           type: string
           description: webToken
           example: asdfasdfasdfasdf
+
+    sosongCrawl:
+      properties:
+        id:
+          type: string
+          description: 아이디
+          example:
+        pw:
+          type: string
+          description: 비밀번호
+          example:

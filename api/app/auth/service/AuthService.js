@@ -62,7 +62,6 @@ module.exports = {
             await conn.beginTransaction();
 
             let date = new Date();
-            date.setHours(date.getHours()+9);
 
             const sql = 'INSERT INTO user(email, password, name, gender, phoneNumber, userType, status, pushSetting, joinAt, modifyAt, maxCase) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
             const param = [inputData.email, inputData.password, inputData.name, inputData.gender, inputData.phoneNumber, 'common', 'request', '08:00', date, date, 30];

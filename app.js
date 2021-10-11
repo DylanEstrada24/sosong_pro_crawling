@@ -42,6 +42,7 @@ const userTodoRouter = require('./api/app/userTodo/controller/UserTodoController
 const userNoteRouter = require('./api/app/userNote/controller/UserNoteController');
 const plusMemberRouter = require('./api/app/plusMember/controller/PlusMemberController');
 const purchaseRouter = require('./api/app/purchase/PurchaseValidation');
+const NoticeRouter = require('./api/app/notice/controller/NoticeController')
 
 const adminAuthRouter = require('./api/admin/auth/controller/AdminAuthController');
 const adminUserRouter = require('./api/admin/user/controller/AdminUserController');
@@ -52,15 +53,22 @@ const termsRouter = require('./api/admin/terms/controller/TermsController');
 
 // const webViewRouter = require('./api/app/webView/webView');
 
-app.use('/api', authRouter, userRouter, boardRouter, /*pushRouter*/ excelRouter, userCaseRouter, userTodoRouter, userNoteRouter, termsRouter, plusMemberRouter, purchaseRouter);
+app.use('/api', authRouter, userRouter, boardRouter, /*pushRouter*/ excelRouter, userCaseRouter, userTodoRouter, userNoteRouter, termsRouter, plusMemberRouter, purchaseRouter, NoticeRouter);
 
 app.use('/api', adminAuthRouter, adminUserRouter, adminNoticeRouter)
 
 const test1Router = require('./api/app/Test1')
 const test2Router = require('./api/app/Test2')
 const test3Router = require('./api/app/Test3')
+const test4Router = require('./api/app/Test4_1')
+const test5Router = require('./api/app/Test4_2')
+const test6Router = require('./api/app/Test4_3')
+const test7Router = require('./api/app/Test4_4')
 
-app.use('/api', test1Router,test2Router,test3Router);
+app.use('/api', test1Router,test2Router,test3Router,test4Router,test5Router,test6Router,test7Router);
+
+const testImageRouter = require('./api/app/temp/controller/ImageController')
+app.use('/api', testImageRouter);
 
 
 // let batch = require('./api/common/crawler/Crawler');

@@ -28,9 +28,11 @@ router.get('/v1/user/case/usernote/:caseIdx', validateToken, (req, res) => {
 router.post('/v1/user/case/usernote', validateToken, (req, res) => {
 
     let date = new Date();
-    date.setHours(date.getHours()+9);
+    // date = date.setHours(date.getHours()+9);
+    // console.log(date);
 
     let inputData = {
+        title: req.body.title,
         updateAt: date,
         content: req.body.content,
         settingAt: req.body.settingAt,
@@ -80,6 +82,7 @@ router.get('/v1/user/case/note/userIdx', validateToken, (req, res) => {
                             if(result_userCase[i].idx === result_caseNote[j].userCase_idx){
                                 let userTodo = {
                                     todoIdx : result_caseNote[j].idx,
+                                    title: result_caseNote[j].title,
                                     updateAt : result_caseNote[j].updateAt,
                                     settingAt: result_caseNote[j].settingAt,
                                     favorite: result_caseNote[j].favorite,
@@ -92,7 +95,7 @@ router.get('/v1/user/case/note/userIdx', validateToken, (req, res) => {
                         }
                         data.push({
                             userCase : userCase,
-                            userTodo : userNoteTmp
+                            userNote : userNoteTmp
                         });
                         userNoteTmp = [];
                     }
@@ -103,6 +106,65 @@ router.get('/v1/user/case/note/userIdx', validateToken, (req, res) => {
         }
     })
 })
+
+router.get('/v1/user/case/note/date/:date', validateToken, (req, res) => {
+
+    let inputData = {
+        userIdx: req.userIdx,
+        updateAt: req.params.date,
+    }
+
+    UserNoteService.getUserCaseByUserIdx(inputData).then((result_userCase) => {
+        if (result_userCase[0] == null) {
+            return res.send(ApiResponse(ErrorCode.CODE_2201));
+        } else if (result_userCase.code) {
+            return res.send(ApiResponse(ErrorCode.CODE_500));
+        } else if (result_userCase[0] != null) {
+            UserNoteService.getCaseNoteByDate(inputData).then((result_caseNote) => {
+                if (result_caseNote[0] == null) {
+                    return res.send(ApiResponse(ErrorCode.CODE_2201));
+                } else if (result_caseNote.code) {
+                    return res.send(ApiResponse(ErrorCode.CODE_500));
+                } else if (result_caseNote[0] != null) {
+
+                    let data = []
+                    let userNoteTmp = [];
+                    for (let i = 0; i < result_userCase.length; i++) {
+                        let userCase = {
+                            title : result_userCase[i].title,
+                            caseIdx : result_userCase[i].idx
+                        };
+                        for(let j=0; j < result_caseNote.length; j++) {
+                            if(result_userCase[i].idx === result_caseNote[j].userCase_idx){
+                                let userTodo = {
+                                    todoIdx : result_caseNote[j].idx,
+                                    title: result_caseNote[j].title,
+                                    updateAt : result_caseNote[j].updateAt,
+                                    settingAt: result_caseNote[j].settingAt,
+                                    favorite: result_caseNote[j].favorite,
+                                    isCheck: result_caseNote[j].isCheck,
+                                    content: result_caseNote[j].content,
+                                    caseIdx : result_caseNote[j].userCase_idx
+                                }
+                                userNoteTmp.push(userTodo);
+                            }
+                        }
+                        if(userNoteTmp.length !== 0) {
+                            data.push({
+                                userCase: userCase,
+                                userNote: userNoteTmp
+                            });
+                            userNoteTmp = [];
+                        }
+                    }
+                    return res.send(ApiResponse(true, "success", data));
+                }
+            })
+
+        }
+    })
+})
+
 
 
 module.exports = router;

@@ -18,20 +18,17 @@ fcm.initializeApp({
     credential: fcm.credential.cert(serAccount),
 })
 
-exports.pushTest = () => {
+exports.pushTest = (fbToken, count) => {
     console.log('push 실행');
 
-    let deviceToken = "feHpL_y_RmKRxnNfeJE2rV:APA91bF2acwLCF3bAwXpddvbnh2P_f4wIo-vI0_3l91Uw_iVcDQR1OfPdnj3zlAxKkc9HFnkDs1HKYMTxLfVsodCFWpLBEBKBoosK9I6xcby8D6cKfBy7NEp0JyU0YKVkT-RrrlMLTWL";
-
-    let date = new Date();
-    date.setHours(date.getHours()+9);
+    //let deviceToken = "feHpL_y_RmKRxnNfeJE2rV:APA91bF2acwLCF3bAwXpddvbnh2P_f4wIo-vI0_3l91Uw_iVcDQR1OfPdnj3zlAxKkc9HFnkDs1HKYMTxLfVsodCFWpLBEBKBoosK9I6xcby8D6cKfBy7NEp0JyU0YKVkT-RrrlMLTWL";
 
     let message = {
         notification:{
             title:'소송프로 푸시 테스트',
-            body: '현재시각 : ' + date,
+            body: count+"개의 사건 업데이트가 있습니다.",
         },
-        token:deviceToken,
+        token:fbToken,
     }
     // [단일 푸쉬]
     fcm.messaging().send(message)

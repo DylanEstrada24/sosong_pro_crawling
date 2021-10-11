@@ -27,8 +27,6 @@ router.put('/v1/user/pushSetting/:time', validateToken, (req, res)=>{
         time: req.params.time,
     }
 
-    console.log(inputData);
-
     UserService.updateUserAlarmSetting(inputData).then((result)=>{
         if(result.code){
             return res.send(ApiResponse(ErrorCode.CODE_500));
@@ -41,6 +39,8 @@ router.put('/v1/user/pushSetting/:time', validateToken, (req, res)=>{
         }
     })
 });
+
+
 
 
 module.exports = router;
