@@ -14,8 +14,6 @@
  *            application/json:
  */
 
-
-
 /**
  * @swagger
  * paths:

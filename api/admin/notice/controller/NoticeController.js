@@ -43,14 +43,12 @@ router.get('/v1/admin/notice', (req, res) => {
     }
 
     NoticeService.getNotice(inputData).then((result) => {
-        if(result.code){
+        if (result[0] == null) {
+            return res.send(ApiResponse(ErrorCode.CODE_2401));
+        } else if (result.code) {
             return res.send(ApiResponse(ErrorCode.CODE_500));
-        } else if(result.affectedRows !== 0){
+        } else if (result[0] != null) {
             return res.send(ApiResponse(true, "success", result));
-        } else if(result.affectedRows === 0){
-            return res.send(ApiResponse(ErrorCode.CODE_403));
-        } else{
-            return res.send(ApiResponse(ErrorCode.CODE_500));
         }
     });
 })
@@ -58,32 +56,16 @@ router.get('/v1/admin/notice', (req, res) => {
 router.get('/v1/admin/notice/noticeIdx/:noticeIdx', validateToken,checkAdmin, (req, res) => {
 
     NoticeService.getNoticeByNoticeIdx(req.params.noticeIdx).then((result) => {
-        if(result.code){
+        if (result[0] == null) {
+            return res.send(ApiResponse(ErrorCode.CODE_2401));
+        } else if (result.code) {
             return res.send(ApiResponse(ErrorCode.CODE_500));
-        } else if(result.affectedRows !== 0){
+        } else if (result[0] != null) {
             return res.send(ApiResponse(true, "success", result));
-        } else if(result.affectedRows === 0){
-            return res.send(ApiResponse(ErrorCode.CODE_403));
-        } else{
-            return res.send(ApiResponse(ErrorCode.CODE_500));
         }
+
     });
 })
-//
-// router.get('/v1/admin/notice/type/:type', validateToken,checkAdmin, (req, res) => {
-//
-//     NoticeService.getNoticeByType(req.params.type).then((result) => {
-//         if(result.code){
-//             return res.send(ApiResponse(ErrorCode.CODE_500));
-//         } else if(result.affectedRows !== 0){
-//             return res.send(ApiResponse(true, "success", result));
-//         } else if(result.affectedRows === 0){
-//             return res.send(ApiResponse(ErrorCode.CODE_403));
-//         } else{
-//             return res.send(ApiResponse(ErrorCode.CODE_500));
-//         }
-//     });
-// })
 
 router.put('/v1/admin/notice/:noticeIdx/:title/:content', validateToken, checkAdmin,(req, res) => {
 

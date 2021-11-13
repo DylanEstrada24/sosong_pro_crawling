@@ -98,7 +98,7 @@ module.exports = {
         try {
             await conn.beginTransaction();
 
-            const sql = "SELECT idx, updateAt, content, settingAt, user_idx, userCase_idx, IF(userTodo.favorite, 'true', 'false') as favorite, IF(userTodo.isCheck, 'true', 'false') as isCheck FROM userTodo WHERE user_idx=?";
+            const sql = "SELECT idx, updateAt, content, title, settingAt, user_idx, userCase_idx, IF(userTodo.favorite, 'true', 'false') as favorite, IF(userTodo.isCheck, 'true', 'false') as isCheck FROM userTodo WHERE user_idx=?";
             const param = [inputData.userIdx];
             const sel = await conn.query(sql, param);
 
@@ -135,7 +135,7 @@ module.exports = {
             await conn.beginTransaction();
 
             const sql = "SELECT idx, title, updateAt, content, settingAt, user_idx, userCase_idx, " +
-                "IF(userTodo.favorite, 'true', 'false') as favorite, IF(userTodo.isCheck, 'true', 'false') as isCheck FROM userTodo WHERE user_idx=? and date(updateAt) = ?";
+                "IF(userTodo.favorite, 'true', 'false') as favorite, IF(userTodo.isCheck, 'true', 'false') as isCheck FROM userTodo WHERE user_idx=? and date(settingAt) = ?";
             const param = [inputData.userIdx, inputData.updateAt];
             const sel = await conn.query(sql, param);
 

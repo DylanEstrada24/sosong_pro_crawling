@@ -3,8 +3,6 @@ const router = express.Router();
 
 require('dotenv').config();
 
-const {validateToken} = require("../../../config/security/JwtTokenProvider");
-
 const {ApiResponse} = require('../../../common/model/ApiResponse');
 const NoticeService = require('../service/NoticeService');
 const {ErrorCode} = require("../../../common/model/ErrorCode");

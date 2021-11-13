@@ -78,7 +78,7 @@ module.exports = {
     try {
         await conn.beginTransaction();
 
-        const sql = 'SELECT * FROM userNote WHERE user_idx=? AND date(updateAt) =? ORDER BY settingAt';
+        const sql = 'SELECT * FROM userNote WHERE user_idx=? AND date(settingAt) =? ORDER BY settingAt';
         const param = [inputData.userIdx, inputData.updateAt];
         const sel = await conn.query(sql, param);
 

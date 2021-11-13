@@ -6,8 +6,7 @@ const {ApiResponse} = require('../../../common/model/ApiResponse');
 const {ErrorCode} = require("../../../common/model/ErrorCode");
 
 const UserTodoService = require('../service/UserTodoService');
-// const UserCaseService = require("../service/UserCaseService");
-
+const moment = require("moment");
 
 router.get('/v1/user/case/todo/caseIdx/:caseIdx', validateToken, (req, res) => {
 
@@ -42,7 +41,6 @@ router.put('/v1/user/case/todo/favorite/:caseIdx/:todoIdx', validateToken, (req,
             return res.send(ApiResponse(ErrorCode.CODE_2101));
         } else if (result[0] != null) {
 
-            console.log(result[0]);
 
             if(result[0].favorite === "true"){
                 UserTodoService.toggleUserTodoFavorite(inputData, false).then((result) => {})
@@ -136,13 +134,9 @@ router.get('/v1/user/case/todo/userIdx', validateToken, (req, res) => {
     })
 })
 
-
 router.post('/v1/user/case/usertodo', validateToken, (req, res) => {
 
     let date = new Date();
-    // date = date.setHours(date.getHours()+9);
-    // date = date.toString();
-    // console.log(date);
     let inputData = {
         title : req.body.title,
         updateAt: date,
@@ -172,7 +166,7 @@ router.get('/v1/user/case/usertodo/date/:date', validateToken, (req, res)=>{
 
         UserTodoService.getUserCaseByUserIdx(inputData).then((result_userCase) => {
             if (result_userCase[0] == null) {
-                return res.send(ApiResponse(ErrorCode.CODE_2201));
+                return res.send(ApiResponse(ErrorCode.CODE_2101));
             } else if (result_userCase.code) {
                 return res.send(ApiResponse(ErrorCode.CODE_500));
             } else if (result_userCase[0] != null) {
@@ -270,5 +264,7 @@ router.put('/v1/user/case/usertodo/:todoIdx/:content', validateToken, (req, res)
     })
 
 })
+
+
 
 module.exports = router;

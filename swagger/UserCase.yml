@@ -5,7 +5,7 @@ components:
         title:
           type: string
           description: title
-          example: title
+          example:
         court:
           type: string
           description: court

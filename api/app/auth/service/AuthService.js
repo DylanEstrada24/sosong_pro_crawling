@@ -144,5 +144,22 @@ module.exports = {
         } finally {
             conn.release();
         }
-    },
+    },findUserFromEmail: async (inputData) => {
+        const conn = await pool.getConnection();
+        try {
+            await conn.beginTransaction();
+
+            const sql = 'SELECT idx FROM user WHERE email=?;';
+            const param = [inputData.userEmail];
+            const ins = await conn.query(sql, param);
+
+            await conn.commit();
+            return ins[0];
+        } catch (err) {
+            await conn.rollback() // 롤백
+            return err;
+        } finally {
+            conn.release();
+        }
+    }
 }

@@ -4,12 +4,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-// const indexRouter = require('./routes/index');
-// const usersRouter = require('./routes/users');
-
 const cors = require('cors');
 const app = express();
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,19 +24,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', indexRouter);
-// app.use('/users', usersRouter);
-
 const authRouter = require('./api/app/auth/controller/AuthController');
 const userRouter = require('./api/app/user/controller/UserController');
-const boardRouter = require('./api/app/board/controller/BoardController');
-const excelRouter = require('./api/common/file/controller/ExcelController');
-// const pushRouter = require('./api/batch/push/Push');
 
 const userCaseRouter = require('./api/app/userCase/controller/UserCaseController');
 const userTodoRouter = require('./api/app/userTodo/controller/UserTodoController');
 const userNoteRouter = require('./api/app/userNote/controller/UserNoteController');
-const plusMemberRouter = require('./api/app/plusMember/controller/PlusMemberController');
 const purchaseRouter = require('./api/app/purchase/PurchaseValidation');
 const NoticeRouter = require('./api/app/notice/controller/NoticeController')
 
@@ -50,29 +39,12 @@ const adminNoticeRouter = require('./api/admin/notice/controller/NoticeControlle
 
 const termsRouter = require('./api/admin/terms/controller/TermsController');
 
-
-// const webViewRouter = require('./api/app/webView/webView');
-
-app.use('/api', authRouter, userRouter, boardRouter, /*pushRouter*/ excelRouter, userCaseRouter, userTodoRouter, userNoteRouter, termsRouter, plusMemberRouter, purchaseRouter, NoticeRouter);
+app.use('/api', authRouter, userRouter, userCaseRouter, userTodoRouter, userNoteRouter, termsRouter, purchaseRouter, NoticeRouter);
 
 app.use('/api', adminAuthRouter, adminUserRouter, adminNoticeRouter)
 
-const test1Router = require('./api/app/Test1')
-const test2Router = require('./api/app/Test2')
-const test3Router = require('./api/app/Test3')
-const test4Router = require('./api/app/Test4_1')
-const test5Router = require('./api/app/Test4_2')
-const test6Router = require('./api/app/Test4_3')
-const test7Router = require('./api/app/Test4_4')
-
-app.use('/api', test1Router,test2Router,test3Router,test4Router,test5Router,test6Router,test7Router);
-
 const testImageRouter = require('./api/app/temp/controller/ImageController')
 app.use('/api', testImageRouter);
-
-
-// let batch = require('./api/common/crawler/Crawler');
-// let r = batch.sanoCrawler(1,2,3);
 
 
 // catch 404 and forward to error handler
